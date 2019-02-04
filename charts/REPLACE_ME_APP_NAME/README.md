@@ -1,1 +1,1 @@
-# Java application
+# Activiti Cloud REPLACE_ME_APP_NAME Application
