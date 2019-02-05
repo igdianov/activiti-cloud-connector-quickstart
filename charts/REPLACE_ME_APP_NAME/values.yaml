@@ -18,8 +18,8 @@ global:
       port: 80
 
 javaOpts:
-  xmx: 1768m
-  xms: 768m
+  xmx: 2048m
+  xms: 1024m
   other: -XX:+UnlockExperimentalVMOptions -Dsun.zip.disableMemoryMapping=true -XX:+UseParallelGC -XX:MinHeapFreeRatio=5 -XX:MaxHeapFreeRatio=10 -XX:GCTimeRatio=4 -XX:AdaptiveSizePolicyWeight=90
 image:
   repository: draft
@@ -43,12 +43,13 @@ probePath: /actuator/health
 livenessProbe:
   initialDelaySeconds: 140
   periodSeconds: 15
-  successThreshold: 1
-  timeoutSeconds: 4
+  timeoutSeconds: 10
+  failureThreshold: 40
 readinessProbe:
-  periodSeconds: 15
-  successThreshold: 1
-  timeoutSeconds: 3
+  initialDelaySeconds: 20
+  periodSeconds: 10
+  timeoutSeconds: 20
+  failureThreshold: 40
 terminationGracePeriodSeconds: 20
 
 ingress:
