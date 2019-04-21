@@ -40,27 +40,19 @@ public class ExampleConnector {
     @StreamListener(value = ExampleConnectorChannels.EXAMPLE_CONNECTOR_CONSUMER)
     public void performTask(IntegrationRequest event) throws InterruptedException {
 
-        logger.info(">> Inside Example Cloud Connector: " + event.getIntegrationContext().getInBoundVariables());
+        logger.info(">> Inside Example Cloud Connector: " + ExampleConnectorChannels.EXAMPLE_CONNECTOR_CONSUMER);
+
+        String var1 = ExampleConnector.class.getSimpleName()+" was called for instance " + event.getIntegrationContext().getProcessInstanceId();
+
+        // @TODO: add your code here
 
         Map<String, Object> results = new HashMap<>();
-        
-        try {
-        	String var1 = ExampleConnector.class.getSimpleName()+" was called for instance " + event.getIntegrationContext().getProcessInstanceId();
+        // @TODO: set your results here
+        Message<IntegrationResult> message = IntegrationResultBuilder.resultFor(event, connectorProperties)
+                .withOutboundVariables(results)
+                .buildMessage();
 
-        	// @TODO: add your code here
-
-        	// @TODO: set your results here, i.e.
-        	results.put("var1", var1);
-        } catch(Exception e) {	
-        	results.put("exception", e);
-        
-        } finally {
-        	Message<IntegrationResult> message = IntegrationResultBuilder.resultFor(event, connectorProperties)
-														                 .withOutboundVariables(results)
-														                 .buildMessage();
-        	integrationResultSender.send(message);
-        }
-
+        integrationResultSender.send(message);
     }
 
 
