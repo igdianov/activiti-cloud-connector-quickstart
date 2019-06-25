@@ -37,9 +37,9 @@ javaOpts:
 # only set this variable if a private registry secret is needed to pull the image
 #registryPullSecrets: private-registry-secret
 image:
-  repository: draft
-  tag: dev
-  pullPolicy: IfNotPresent
+  repository: REPLACE_ME_DOCKER_ORG_NAME/REPLACE_ME_APP_NAME
+  tag: develop
+  pullPolicy: Always
 service:
   name: REPLACE_ME_APP_NAME
   type: ClusterIP
@@ -53,7 +53,7 @@ resources:
   requests:
     cpu: 150m
     memory: 256Mi
-probePath: /actuator/health
+probePath: '{{ include "common.ingress-path" . }}/actuator/health'
 livenessProbe:
   initialDelaySeconds: 60
   periodSeconds: 15
@@ -67,7 +67,6 @@ readinessProbe:
   successThreshold: 1
   failureThreshold: 4
 terminationGracePeriodSeconds: 20
-
 
 ingress:
   ## Set to true to enable ingress record generation
@@ -84,17 +83,11 @@ ingress:
   ## Ingress annotations done as key:value pairs
   annotations: {}
 
-#only needed when using sck8s
-rbac:
-  create: true
-
-serviceAccount:
-  create: true
-
 #config for configmap if using sck8s
 #configMap:
 #  feed.rate: 1000
 
 ## Add additional volumes and mounts
 extraVolumes: |
+
 extraVolumeMounts: |
