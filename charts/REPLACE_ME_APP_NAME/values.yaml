@@ -38,7 +38,7 @@ javaOpts:
 # only set this variable if a private registry secret is needed to pull the image
 #registryPullSecrets: private-registry-secret
 image:
-  repository: REPLACE_ME_DOCKER_REGISTRY_ORG/REPLACE_ME_ORG_NAME/REPLACE_ME_APP_NAME
+  repository: REPLACE_ME_ORG/REPLACE_ME_APP_NAME
   tag: develop
   pullPolicy: Always
 service:
@@ -103,7 +103,7 @@ postgres:
   port: 5432
   username: postgres
   password:
-  
+
 ## Add additional volumes and mounts
 extraVolumes: |
 
