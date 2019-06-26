@@ -1,1 +1,1 @@
-# Activiti Cloud REPLACE_ME_APP_NAME Application
+# Activiti Cloud REPLACE_ME_APP_NAME Connector Application
