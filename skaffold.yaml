@@ -8,7 +8,8 @@ build:
   tagPolicy:
     envTemplate:
       template: '{{.DOCKER_REGISTRY}}/{{.IMAGE_NAME}}:{{.VERSION}}'
-  local: {}
+  local:
+    useDockerCLI: true
 deploy:
   kubectl: {}
 profiles:

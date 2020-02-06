@@ -21,7 +21,7 @@
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
     <java.version>8</java.version>
-    <activiti-cloud-dependencies.version>7.1.0.M2</activiti-cloud-dependencies.version>
+    <activiti-cloud-dependencies.version>7.1.0.M4</activiti-cloud-dependencies.version>
     <maven-failsafe-plugin.version>3.0.0-M3</maven-failsafe-plugin.version>
     <maven-surefire-plugin.version>3.0.0-M3</maven-surefire-plugin.version>
     <maven-deploy-plugin.version>2.8.2</maven-deploy-plugin.version> <!-- required for jx -->
