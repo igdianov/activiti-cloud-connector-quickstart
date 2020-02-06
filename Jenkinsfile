@@ -6,6 +6,7 @@ pipeline {
     ORG = 'REPLACE_ME_ORG'
     APP_NAME = 'REPLACE_ME_APP_NAME'
     CHARTMUSEUM_CREDS = credentials('jenkins-x-chartmuseum')
+    _JAVA_OPTIONS = '-XX:+UnlockExperimentalVMOptions -Dsun.zip.disableMemoryMapping=true -XX:+UseParallelGC -XX:MinHeapFreeRatio=5 -XX:MaxHeapFreeRatio=10 -XX:GCTimeRatio=4 -XX:AdaptiveSizePolicyWeight=90 -Xms512m -Xmx1024m'
   }
   stages {
     stage('CI Build and push snapshot') {
